@@ -17,7 +17,10 @@ First of all I had to figure out how to send signals to [BeeWi Mini Cooper](http
   * `1` - Go forward
   * `2` - Stop go backwards
   * `3` - Go backwards
-
+  * `4` - Stop turn Left
+  * `5` - Turn Left
+  * `6` - Stop Turn Right
+  * `7` - Turn Right
 
 You can clone <a href="https://github.com/RolandasRazma/RRBee/tree/master/iOS%20App%20(Default)">my basic iOS app</a> to control BeeWi!
 
