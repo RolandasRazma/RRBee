@@ -12,7 +12,11 @@ It's a nice toy, and best of all - it is bluetooth controlled over iPhone! All y
 
 Modding BeeWi Mini Cooper [@YPlan](http://yplanapp.com)
 =====
-First of all I had to figure out how to send signals to [BeeWi Mini Cooper](http://www.bee-wi.com/bluetooth-controlled-car,us,4,BBZ251-A6.cfm) over bluetooth. Apparently it's quite simple. You just need to add `UISupportedExternalAccessoryProtocols` to `Info.plist` and connect to it using [ExternalAccessory.framework](https://developer.apple.com/library/ios/documentation/ExternalAccessory/Reference/ExternalAccessoryFrameworkReference/_index.html) I got `UISupportedExternalAccessoryProtocols` from [official App](https://itunes.apple.com/gb/app/beewi-control-pad/id427936738?mt=8) by extracting IPA and poking in their own `Info.plist`. I was about to start sniff bluetooth data by emulating car, to check what data comes in to control it, but surprisingly found another project on GitHub that already did that [@hdi-95 hdi-remotepad](https://github.com/hdi-95/hdi-remotepad). That was pretty simple. Apparently you need only 8 command 0-7. You can clone <a href="https://github.com/RolandasRazma/RRBee/tree/master/iOS%20App%20(Default)">my basic iOS app</a> to control BeeWi!
+First of all I had to figure out how to send signals to [BeeWi Mini Cooper](http://www.bee-wi.com/bluetooth-controlled-car,us,4,BBZ251-A6.cfm) over bluetooth. Apparently it's quite simple. You just need to add `UISupportedExternalAccessoryProtocols` to `Info.plist` and connect to it using [ExternalAccessory.framework](https://developer.apple.com/library/ios/documentation/ExternalAccessory/Reference/ExternalAccessoryFrameworkReference/_index.html) I got `UISupportedExternalAccessoryProtocols` from [official App](https://itunes.apple.com/gb/app/beewi-control-pad/id427936738?mt=8) by extracting IPA and poking in their own `Info.plist`. I was about to start sniff bluetooth data by emulating car, to check what data comes in to control it, but surprisingly found another project on GitHub that already did that [@hdi-95 hdi-remotepad](https://github.com/hdi-95/hdi-remotepad). That was pretty simple. Apparently you need only 8 command `0`-`7`. <br />
+  0 - Stop Go forward
+  1 - Go forward
+
+You can clone <a href="https://github.com/RolandasRazma/RRBee/tree/master/iOS%20App%20(Default)">my basic iOS app</a> to control BeeWi!
 
 
 
