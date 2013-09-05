@@ -42,6 +42,8 @@ Ok, so we have Bluetooth serial communication module (most likely cheap one) and
 
 4 pins only... `Go forward`, `Go backwards`, `Turn Left`, `Turn Right`… Clearly no place for all cool features I would like to add...<br />
 
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/bluetooth_breakout_board_pins.jpg" width="300" alt="Bluetooth breakout board pins" /><br />
+
 BeeWi Mini Cooper - Modding Hardware
 ------
 to be continued...
