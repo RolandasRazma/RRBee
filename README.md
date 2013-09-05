@@ -38,4 +38,4 @@ Lets inspect whats under the hood. What you see standard Bluetooth receiver, and
 <img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/bluetooth_receiver.jpg" width="300" alt="Bluetooth receiver" />
 <img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/bluetooth_breakout_board_back_side.jpg" width="300" alt="Bluetooth breakout board" /> <br />
 
-Ok, so we have Bluetooth Serial Communication (most likely cheap one) Module and [breakout board](http://en.wikipedia.org/wiki/Breakout_board) with [micro controller](http://en.wikipedia.org/wiki/Micro_controller).
+Ok, so we have Bluetooth serial communication module (most likely cheap one) and [breakout board](http://en.wikipedia.org/wiki/Breakout_board) with [micro controller](http://en.wikipedia.org/wiki/Micro_controller). I fast checked all 8 pins on breakout board using [multimeter](http://en.wikipedia.org/wiki/Multimeter) and unfortunately only 4 of those are for serial signal, other 4 are for [ISP](http://en.wikipedia.org/wiki/In-system_programming) 2 for ground, 1 for Vcc, and 1 unused for [LED](http://en.wikipedia.org/wiki/Led).
