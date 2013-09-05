@@ -32,10 +32,10 @@ Ok. So I need more of those signals to turn on and off lights. Disassembling is 
 <img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/screws.jpg" height="300" alt="4 screws" /><br />
 
 Lets inspect whats under the hood. What you see standard Bluetooth receiver, and very simple [PCB](http://en.wikipedia.org/wiki/Printed_circuit_board) under it.
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/chassi.jpg" height="300" alt="chassi" />
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/chassi_no_receiver.jpg" height="300" alt="chassi without Bluetooth receiver" />
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/pcb_other_side.jpg" height="300" alt="PCB back side" />
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/bluetooth_receiver.jpg" height="300" alt="Bluetooth receiver" />
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/bluetooth_breakout_board_back_side.jpg" height="300" alt="Bluetooth breakout board" />
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/chassi.jpg" width="300" alt="chassi" />
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/chassi_no_receiver.jpg" width="300" alt="chassi without Bluetooth receiver" />
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/pcb_other_side.jpg" width="300" alt="PCB back side" />
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/bluetooth_receiver.jpg" width="300" alt="Bluetooth receiver" />
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/bluetooth_breakout_board_back_side.jpg" width="300" alt="Bluetooth breakout board" />
 
 
