@@ -3,7 +3,7 @@ RRBee
 
 Pet project for BeeWi car controlling @YPlan
 
-BeeWi Mini Cooper [@YPlan](http://yplanapp.com)
+BeeWi Mini Cooper ![@YPlan](http://yplanapp.com)
 =====
 
 It's not interesting when it's only work and no pleasure, so we got a [BeeWi Mini Cooper](http://www.bee-wi.com/bluetooth-controlled-car,us,4,BBZ251-A6.cfm) [@YPlan](http://yplanapp.com) to shorten those "hard" days :)<br />
