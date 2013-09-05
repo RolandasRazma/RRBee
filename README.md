@@ -36,6 +36,6 @@ Lets inspect whats under the hood. What you see standard Bluetooth receiver, and
 <img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/chassi_no_receiver.jpg" width="300" alt="chassi without Bluetooth receiver" />
 <img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/pcb_other_side.jpg" width="300" alt="PCB back side" />
 <img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/bluetooth_receiver.jpg" width="300" alt="Bluetooth receiver" />
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/bluetooth_breakout_board_back_side.jpg" width="300" alt="Bluetooth breakout board" />
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/bluetooth_breakout_board_back_side.jpg" width="300" alt="Bluetooth breakout board" /> <br />
 
-
+Ok, so we have Bluetooth Serial Communication (most likely cheap one) Module and [breakout board](http://en.wikipedia.org/wiki/Breakout_board) with [micro controller](http://en.wikipedia.org/wiki/Micro_controller).
