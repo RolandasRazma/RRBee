@@ -40,10 +40,13 @@ Lets inspect whats under the hood. What you see standard Bluetooth receiver, and
 
 Ok, so we have Bluetooth serial communication module (most likely cheap one) and [breakout board](http://en.wikipedia.org/wiki/Breakout_board) with [micro controller](http://en.wikipedia.org/wiki/Micro_controller). I fast checked all 8 pins on breakout board using [multimeter](http://en.wikipedia.org/wiki/Multimeter) and unfortunately only 4 of those are for serial signal, other 4 are for [ISP](http://en.wikipedia.org/wiki/In-system_programming) 2 for ground, 1 for Vcc, and 1 unused for [LED](http://en.wikipedia.org/wiki/Led).<br />
 
-4 pins only... `Go forward`, `Go backwards`, `Turn Left`, `Turn Right`… Clearly no place for all cool features I would like to add... even worser - after some experiments I figured out that only 2 of them can be active at the same time (for example `1` go forward + `7` turn right) so there is no way I could do some logic with [gates](http://en.wikipedia.org/wiki/Logic_gate)<br />
+4 pins only... `Go forward`, `Go backwards`, `Turn Left`, `Turn Right`… Clearly no place for all cool features I would like to add... even worser - after some experiments I figured out that only 2 of them can be active at the same time (for example `1` go forward + `7` turn right) so there is no way I could do some logic with [gates](http://en.wikipedia.org/wiki/Logic_gate)...<br />
 
 <img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/bluetooth_breakout_board_pins.jpg" width="300" alt="Bluetooth breakout board pins" /><br />
 
 BeeWi Mini Cooper - Modding Hardware
 ------
-to be continued...
+So my choices pretty narrow here:
+  * figure out what micro controller is used on breakout board and try to reprogram it.
+  * cut micro controller from breakout board and add new one with enough pins I could program.
+  * `to be continued…`
