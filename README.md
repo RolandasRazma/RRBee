@@ -3,14 +3,14 @@
 RRBee
 =====
 
-Pet project for BeeWi car controlling @YPlan<br /><br />
+Pet project for [BeeWi Mini Cooper](http://www.bee-wi.com/bluetooth-controlled-car,us,4,BBZ251-A6.cfm) controlling [@YPlan](http://yplanapp.com)<br />
 
 BeeWi Mini Cooper [@YPlan](http://yplanapp.com)
 ------
 
 It's not interesting when it's only work and no pleasure, so we got a [BeeWi Mini Cooper](http://www.bee-wi.com/bluetooth-controlled-car,us,4,BBZ251-A6.cfm) [@YPlan](http://yplanapp.com) to shorten those "hard" days :)<br />
 <img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/car_with_box.jpg" width="300" alt="BeeWi Mini Cooper" /><br />
-It's a nice toy, and best of all - it is Bluetooth controlled over iPhone! All you need is free [iOS application](https://itunes.apple.com/gb/app/beewi-control-pad/id427936738?mt=8). After few drag races with our designer [João Pires](https://twitter.com/joaorafaelpires) we started to chat how it would be cool to mod it. You know... like add blinking lights, WiFi camera and etc, and best of all - I can write iOS application to do all that!<br /><br />
+It's a nice toy, and best of all - it is Bluetooth controlled over iPhone! All you need is free [iOS application](https://itunes.apple.com/gb/app/beewi-control-pad/id427936738?mt=8). After few drag races with our designer [João Pires](https://twitter.com/joaorafaelpires) we started to chat how it would be cool to mod it. You know... like add blinking lights, WiFi camera and etc, and best of all - I can write iOS application to do all that!<br />
 
 Modding BeeWi Mini Cooper [@YPlan](http://yplanapp.com)
 ------
@@ -25,7 +25,7 @@ First of all I had to figure out how to send signals to [BeeWi Mini Cooper](http
   * `6` - Stop Turn Right
   * `7` - Turn Right
 
-You can clone <a href="https://github.com/RolandasRazma/RRBee/tree/master/iOS%20App%20(Default)">my basic iOS app</a> to control BeeWi!<br /><br />
+You can clone <a href="https://github.com/RolandasRazma/RRBee/tree/master/iOS%20App%20(Default)">my basic iOS app</a> to control BeeWi!<br />
 
 BeeWi Mini Cooper - Hardware
 ------
@@ -43,38 +43,38 @@ Ok, so we have Bluetooth serial communication module (most likely cheap one) and
 
 4 pins only... `Go forward`, `Go backwards`, `Turn Left`, `Turn Right`… Clearly no place for all cool features I would like to add... even worser - after some experiments I figured out that __only 2__ of them can be active at the same time (for example `1` go forward + `7` turn right) so there is no way I could do some logic with [gates](http://en.wikipedia.org/wiki/Logic_gate)...<br />
 
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/bluetooth_breakout_board_pins.jpg" width="300" alt="Bluetooth breakout board pins" /><br /><br />
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/bluetooth_breakout_board_pins.jpg" width="300" alt="Bluetooth breakout board pins" /><br />
 
 BeeWi Mini Cooper - Modding Hardware
 ------
 So my choices pretty narrow here:
   * figure out what micro controller is used on breakout board and try to reprogram it.
   * cut micro controller from breakout board and add new one with enough pins I could program.
-  * use [Shift register](http://en.wikipedia.org/wiki/Shift_register) to increase number of available outputs.<br /><br />
+  * use [Shift register](http://en.wikipedia.org/wiki/Shift_register) to increase number of available outputs.<br />
   
 *__What is Shift Registers?__*<br />
-[Shift register](http://en.wikipedia.org/wiki/Shift_register) in principle it is "device" that counts how many impulses you gave to it. Every time you give impulse it shifts bit by one position. If you had 00000000 (look at legs of it) after you "give it" "1" it will have value of 00000001, if you then "give it" "0" and "1" again, it will have value of 00000101. It is very simple to operate, you can connect then in <a href="http://en.wikipedia.org/wiki/Daisy_chain_(electrical_engineering)">daisy chain</a> to get virtually unlimited number of outputs and best of all you need only 3-4 wires to do so.<br />
+[Shift register](http://en.wikipedia.org/wiki/Shift_register) in principle it is "device" that counts how many impulses you gave to it. Every time you give impulse it shifts bit by one position. If you had `00000000` (look at legs of it) after you "give it" `1` it will have value of `00000001`, if you then "give it" `0` and `1` again, it will have value of `00000101`. It is very simple to operate, you can connect then in <a href="http://en.wikipedia.org/wiki/Daisy_chain_(electrical_engineering)">daisy chain</a> to get virtually unlimited number of outputs and best of all you need only 3-4 wires to do so.<br />
 Depending on Shift register model it might have different pins, but for [74HC595 Shift Register](http://www.nxp.com/documents/data_sheet/74HC_HCT595.pdf) they are as follow:
- * 1 - output (QB)
- * 2 - output (QC)
- * 3 - output (QD)
- * 4 - output (QE)
- * 5 - output (QF)
- * 6 - output (QG)
- * 7 - output (QH)
- * 8 - <a href="http://en.wikipedia.org/wiki/Ground_(electricity)">GND</a> - ground pin you connecting to "**-**" of your [power supply](http://en.wikipedia.org/wiki/Power_supply)
- * 9 - output used for connecting several shift register together (QH')
- * 10 - serial clear - Will clear all values if no current is given. Most of the time you want it to be connected to power supply "**+**"
- * 11 - serial clock - When this pin is pulled high (has current), it will shift the register to whatever value is given on pin 14
- * 12 - register clock - After you set value you want (by operating pin 11 and pin 14) this pin needs to be pulled high (have current) to set the output to the new values. It must be pulled high after SRCLK has gone LOW.
- * 13 - output enabled - enables output when tied to ground (power supply "**-**"). If you want to temporary disable output without affecting shift register value you can pull it HIGH
- * 14 - serial input - value for the next bit that gets shifted in (when pin 11 is HIGH)
- * 15 - output (QA)
- * 16 - <a href="http://en.wikipedia.org/wiki/IC_power_supply_pin">VCC</a> - "**+**" of your power supply
+ * `1` - output (QB)
+ * `2` - output (QC)
+ * `3` - output (QD)
+ * `4` - output (QE)
+ * `5` - output (QF)
+ * `6` - output (QG)
+ * `7` - output (QH)
+ * `8` - <a href="http://en.wikipedia.org/wiki/Ground_(electricity)">GND</a> - ground pin you connecting to `-` of your [power supply](http://en.wikipedia.org/wiki/Power_supply)
+ * `9` - output used for connecting several shift register together (QH')
+ * `10` - serial clear - Will clear all values if no current is given. Most of the time you want it to be connected to power supply `+`
+ * `11` - serial clock - When this pin is pulled high (has current), it will shift the register to whatever value is given on pin `14`
+ * `12` - register clock - After you set value you want (by operating pin `11` and pin `14`) this pin needs to be pulled high (have current) to set the output to the new values. It must be pulled high after serial clock (pin `11`) has gone LOW.
+ * `13` - output enabled - enables output when tied to ground (power supply `-`). If you want to temporary disable output without affecting shift register value you can pull it HIGH
+ * `14` - serial input - value for the next bit that gets shifted in (when pin `11` is HIGH)
+ * `15` - output (QA)
+ * `16` - <a href="http://en.wikipedia.org/wiki/IC_power_supply_pin">VCC</a> - `+` of your power supply
 
 <img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/74HC595/74HC595_lots.jpg" height="300" alt=""/>
 <img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/74HC595/74HC595.jpg" height="300" alt=""/>
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/74HC595/74HC595_pinout.jpg" height="300" alt=""/><br /><br />
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/74HC595/74HC595_pinout.jpg" height="300" alt=""/><br />
 
 *__Wireing__*<br />
 I thought that [Shift registers](http://en.wikipedia.org/wiki/Shift_register) is simplest solution as you can get virtually unlimited outputs, it would move all logic to software (iOS app) and most important in my case is that I can control it with 3 wires (remember that BeeWi Bluetooth breakout board has only 4 and allows only 2 be active at same time)
