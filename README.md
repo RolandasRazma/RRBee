@@ -91,7 +91,7 @@ Before I start soldering everything to BeeWi PCB I have to test if it would work
 <img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard_bt_74HC595_power_jumpers_leds_done_on.jpg" width="240" alt="Breadboard, BeeWi Bluetooth, Shift register, Jumpers, LED's - assembled, on"/><br />
 
 *__Putting back together__*<br />
-It's time to put all back together. There is no place for shift register on bottom of original PCB so I decided to put it on the top. First of all I needed to cut old connections going to Bluetooth breakout board as they will be replaced with new on driven by shift register. It's not that card if you have [crafts knife](http://www.google.com/search?q=crafts+knife&tbm=isch). <br />
+It's time to put all back together. There is no place for shift register on bottom of original PCB so I decided to put it on the top. First of all I needed to cut old connections going to Bluetooth breakout board as they will be replaced with new on driven by shift register. It's not that hard if you have [crafts knife](http://www.google.com/search?q=crafts+knife&tbm=isch). <br />
 <img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Rewire/original.jpg" width="240" alt=""/>
 <img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Rewire/cut.jpg" width="240" alt=""/>
 <img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Rewire/solder.jpg" width="240" alt=""/>
