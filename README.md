@@ -9,7 +9,7 @@ BeeWi Mini Cooper [@YPlan](http://yplanapp.com)
 ------
 
 It's not interesting when it's only work and no pleasure, so we got a [BeeWi Mini Cooper](http://www.bee-wi.com/bluetooth-controlled-car,us,4,BBZ251-A6.cfm) [@YPlan](http://yplanapp.com) to shorten those "hard" days :)<br />
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/car_with_box.jpg" width="300" alt="BeeWi Mini Cooper" /><br />
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/car_with_box.jpg" width="280" alt="BeeWi Mini Cooper" /><br />
 It's a nice toy, and best of all - it is Bluetooth controlled over iPhone! All you need is free [iOS application](https://itunes.apple.com/gb/app/beewi-control-pad/id427936738?mt=8). After few drag races with our designer [João Pires](https://twitter.com/joaorafaelpires) we started to chat how it would be cool to mod it. You know... like add blinking lights, WiFi camera and etc, and best of all - I can write iOS application to do all that!<br />
 
 Modding BeeWi Mini Cooper [@YPlan](http://yplanapp.com)
@@ -30,20 +30,20 @@ You can clone <a href="https://github.com/RolandasRazma/RRBee/tree/master/iOS%20
 BeeWi Mini Cooper - Hardware
 ------
 Ok. So I need more of those signals to turn on and off lights. Disassembling is quite easy. There is only 4 screws at the bottom. <br />
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/screws.jpg" height="300" alt="4 screws" /><br />
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/screws.jpg" height="280" alt="4 screws" /><br />
 
 Lets inspect whats under the hood. What you see standard Bluetooth receiver, and very simple [PCB](http://en.wikipedia.org/wiki/Printed_circuit_board) under it.<br />
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/chassi.jpg" width="300" alt="chassi" />
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/chassi_no_receiver.jpg" width="300" alt="chassis without Bluetooth receiver" />
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/pcb_other_side.jpg" width="300" alt="PCB back side" />
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/bluetooth_receiver.jpg" width="300" alt="Bluetooth receiver" />
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/bluetooth_breakout_board_back_side.jpg" width="300" alt="Bluetooth breakout board" /> <br />
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/chassi.jpg" width="280" alt="chassi" />
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/chassi_no_receiver.jpg" width="280" alt="chassis without Bluetooth receiver" />
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/pcb_other_side.jpg" width="280" alt="PCB back side" />
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/bluetooth_receiver.jpg" width="280" alt="Bluetooth receiver" />
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/bluetooth_breakout_board_back_side.jpg" width="280" alt="Bluetooth breakout board" /> <br />
 
 Ok, so we have Bluetooth serial communication module (most likely cheap one) and [breakout board](http://en.wikipedia.org/wiki/Breakout_board) with [micro controller](http://en.wikipedia.org/wiki/Micro_controller). I fast checked all 8 pins on breakout board using [multimeter](http://en.wikipedia.org/wiki/Multimeter) and unfortunately only 4 of those are for serial signal, other 4 are for [ISP](http://en.wikipedia.org/wiki/In-system_programming) 2 for ground, 1 for Vcc, and 1 unused for [LED](http://en.wikipedia.org/wiki/Led).<br />
 
 4 pins only... `Go forward`, `Go backwards`, `Turn Left`, `Turn Right`… Clearly no place for all cool features I would like to add... even worser - after some experiments I figured out that __only 2__ of them can be active at the same time (for example `1` go forward + `7` turn right) so there is no way I could do some logic with [gates](http://en.wikipedia.org/wiki/Logic_gate)...<br />
 
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/bluetooth_breakout_board_pins.jpg" width="300" alt="Bluetooth breakout board pins" /><br />
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Car/bluetooth_breakout_board_pins.jpg" width="280" alt="Bluetooth breakout board pins" /><br />
 
 BeeWi Mini Cooper - Modding Hardware
 ------
@@ -72,9 +72,9 @@ Depending on Shift register model it might have different pins, but for [74HC595
  * `15` - output (QA)
  * `16` - <a href="http://en.wikipedia.org/wiki/IC_power_supply_pin">VCC</a> - `+` of your power supply
 
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/74HC595/74HC595_lots.jpg" height="300" alt=""/>
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/74HC595/74HC595.jpg" height="300" alt=""/>
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/74HC595/74HC595_pinout.jpg" height="300" alt=""/><br />
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/74HC595/74HC595_lots.jpg" height="280" alt=""/>
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/74HC595/74HC595.jpg" height="280" alt=""/>
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/74HC595/74HC595_pinout.jpg" height="280" alt=""/><br />
 
 *__Wireing__*<br />
 I thought that [Shift registers](http://en.wikipedia.org/wiki/Shift_register) is simplest solution as you can get virtually unlimited outputs, it would move all logic to software (iOS app) and most important in my case is that I can control it with 3 wires (remember that BeeWi Bluetooth breakout board has only 4 and allows only 2 be active at same time)
@@ -83,14 +83,17 @@ I had couple of [74HC595 Shift Registers](http://www.nxp.com/documents/data_shee
 
 Before I start soldering everything to BeeWi PCB I have to test if it would work. I started putting everything on [Breadboard](http://en.wikipedia.org/wiki/Breadboard). First, Bluetooth breakout board from BeeWi and Shift register, then added simple [power supply](http://en.wikipedia.org/wiki/Power_supply) I had and some [LED](http://en.wikipedia.org/wiki/Light-emitting_diode)'s. Then wrote some simple <a href="https://github.com/RolandasRazma/RRBee/tree/master/iOS%20App%20(Mod)">iOS app</a> to set bits as I wanted. Good, now I have 8 independant outputs!
 
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard.jpg" height="300" alt="Breadboard"/>
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard_bt_74HC595.jpg" height="300" alt="Breadboard, BeeWi Bluetooth, Shift register"/>
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard_bt_74HC595_power_jumpers.jpg" height="300" alt="Breadboard, BeeWi Bluetooth, Shift register, Jumpers"/>
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard_bt_74HC595_power_jumpers_leds.jpg" height="300" alt="Breadboard, BeeWi Bluetooth, Shift register, Jumpers, LED's"/>
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard_bt_74HC595_power_jumpers_leds_done.jpg" height="300" alt="Breadboard, BeeWi Bluetooth, Shift register, Jumpers, LED's - assembled"/>
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard_bt_74HC595_power_jumpers_leds_done_on.jpg" height="300" alt="Breadboard, BeeWi Bluetooth, Shift register, Jumpers, LED's - assembled, on"/>
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard.jpg" height="280" alt="Breadboard"/>
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard_bt_74HC595.jpg" height="280" alt="Breadboard, BeeWi Bluetooth, Shift register"/>
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard_bt_74HC595_power_jumpers.jpg" height="280" alt="Breadboard, BeeWi Bluetooth, Shift register, Jumpers"/>
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard_bt_74HC595_power_jumpers_leds.jpg" height="280" alt="Breadboard, BeeWi Bluetooth, Shift register, Jumpers, LED's"/>
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard_bt_74HC595_power_jumpers_leds_done.jpg" height="280" alt="Breadboard, BeeWi Bluetooth, Shift register, Jumpers, LED's - assembled"/>
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard_bt_74HC595_power_jumpers_leds_done_on.jpg" height="280" alt="Breadboard, BeeWi Bluetooth, Shift register, Jumpers, LED's - assembled, on"/><br />
 
-
-
+*__Putting back together__*<br />
+It's time to put all back together. There is no place for shift register on bottom of original PCB so I decided to put it on the top. First of all I needed to cut old connections going to Bluetooth breakout board as they will be replaced with new on driven by shift register. It's not that card if you have [crafts knife](http://www.google.com/search?q=crafts+knife&tbm=isch). <br />
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Rewire/original.jpg" width="280" alt=""/>
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Rewire/cut.jpg" width="280" alt=""/>
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Rewire/solder.jpg" width="280" alt=""/>
 
 `to be continued...`
