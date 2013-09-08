@@ -83,12 +83,12 @@ I had couple of [74HC595 Shift Registers](http://www.nxp.com/documents/data_shee
 
 Before I start soldering everything to BeeWi PCB I have to test if it would work. I started putting everything on [Breadboard](http://en.wikipedia.org/wiki/Breadboard). First, Bluetooth breakout board from BeeWi and Shift register, then added simple [power supply](http://en.wikipedia.org/wiki/Power_supply) I had and some [LED](http://en.wikipedia.org/wiki/Light-emitting_diode)'s. Then wrote simple <a href="https://github.com/RolandasRazma/RRBee/tree/master/iOS%20App%20(Mod)">iOS app</a> to set bits as I wanted. Good, now I have 8 independant outputs!
 
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard.jpg" width="240" alt="Breadboard"/>
 <img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard_bt_74HC595.jpg" width="240" alt="Breadboard, BeeWi Bluetooth, Shift register"/>
 <img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard_bt_74HC595_power_jumpers.jpg" width="240" alt="Breadboard, BeeWi Bluetooth, Shift register, Jumpers"/>
 <img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard_bt_74HC595_power_jumpers_leds.jpg" width="240" alt="Breadboard, BeeWi Bluetooth, Shift register, Jumpers, LED's"/>
 <img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard_bt_74HC595_power_jumpers_leds_done.jpg" width="240" alt="Breadboard, BeeWi Bluetooth, Shift register, Jumpers, LED's - assembled"/>
-<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard_bt_74HC595_power_jumpers_leds_done_on.jpg" width="240" alt="Breadboard, BeeWi Bluetooth, Shift register, Jumpers, LED's - assembled, on"/><br />
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard_bt_74HC595_power_jumpers_leds_done_on.jpg" width="240" alt="Breadboard, BeeWi Bluetooth, Shift register, Jumpers, LED's - assembled, on"/>
+<img src="https://raw.github.com/RolandasRazma/RRBee/master/Hardware/Breakout/breadboard_components.jpg" width="240" alt="Breadboard"/><br />
 
 *__Putting back together__*<br />
 It's time to put all back together. There is no place for shift register on bottom of original PCB so I decided to put it on the top. First of all I needed to cut old connections going to Bluetooth breakout board as they will be replaced with new ones driven by shift register. It's not that hard if you have [crafts knife](http://www.google.com/search?q=crafts+knife&tbm=isch). <br />
