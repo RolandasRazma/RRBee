@@ -126,6 +126,8 @@
 
     data[25] = REGISTER_CLOCK_HIGH;
     data[26] = REGISTER_CLOCK_LOW;
+
+    NSLog(@"%i%i%i%i%i%i%i%i", data[2], data[5], data[8], data[11], data[14], data[17], data[20], data[23]);
     
     [_session.outputStream write: (const uint8_t *)data
                        maxLength: 27];
