@@ -17,14 +17,7 @@
 
 
 @implementation RRBeeWi {
-    NSTimer         *_runLoopTimer;
-    EASession       *_session;
-    
-    CGFloat         _forward;
-    CGFloat         _angle;
-    
-    CFTimeInterval  _forwardCallTime;
-    BOOL            _isMovingForward;
+    EASession   *_session;    
 }
 
 
@@ -150,6 +143,8 @@
 
 - (void)accessoryDidDisconnect:(EAAccessory *)accessory {
     NSLog(@"accessoryDidDisconnect");
+    
+    _session = nil;
 }
 
 
