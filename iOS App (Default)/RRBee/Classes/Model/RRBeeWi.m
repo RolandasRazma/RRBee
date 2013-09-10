@@ -30,14 +30,7 @@ const uint8_t BEE_RIGHT_LOW[1]      = {6};
 
 
 @implementation RRBeeWi {
-    NSTimer         *_runLoopTimer;
-    EASession       *_session;
-    
-    CGFloat         _forward;
-    CGFloat         _angle;
-    
-    CFTimeInterval  _forwardCallTime;
-    BOOL            _isMovingForward;
+    EASession   *_session;    
 }
 
 
@@ -99,6 +92,8 @@ const uint8_t BEE_RIGHT_LOW[1]      = {6};
 
 - (void)accessoryDidDisconnect:(EAAccessory *)accessory {
     NSLog(@"accessoryDidDisconnect");
+    
+    _session = nil;
 }
 
 
