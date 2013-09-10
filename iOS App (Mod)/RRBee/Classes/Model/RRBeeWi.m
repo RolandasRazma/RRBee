@@ -75,6 +75,15 @@
             [_session.outputStream open];
             
             NSLog(@"got session");
+            
+            [self setShiftRegisterStateForQA: RRShiftRegisterStateLow
+                                          QB: RRShiftRegisterStateLow
+                                          QC: RRShiftRegisterStateLow
+                                          QD: RRShiftRegisterStateLow
+                                          QE: RRShiftRegisterStateLow
+                                          QF: RRShiftRegisterStateLow
+                                          QG: RRShiftRegisterStateLow
+                                          QH: RRShiftRegisterStateLow];
         }
     }
 }
