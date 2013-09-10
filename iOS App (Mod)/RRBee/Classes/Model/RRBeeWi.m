@@ -17,7 +17,8 @@
 
 
 @implementation RRBeeWi {
-    EASession   *_session;    
+    EASession   *_session;
+    NSTimer     *_lookForAccessoryTimer;
 }
 
 
@@ -56,6 +57,7 @@
     if ( accessory ) {
         _session = [[EASession alloc] initWithAccessory:accessory forProtocol:@"com.beewi.controlleur"];
         if ( _session ) {
+            [_lookForAccessoryTimer invalidate], _lookForAccessoryTimer = nil;
             
             [_session.accessory setDelegate:self];
             
@@ -68,15 +70,6 @@
             [_session.outputStream open];
             
             NSLog(@"got session");
-            
-            [self setShiftRegisterStateForQA: RRShiftRegisterStateLow
-                                          QB: RRShiftRegisterStateLow
-                                          QC: RRShiftRegisterStateLow
-                                          QD: RRShiftRegisterStateLow
-                                          QE: RRShiftRegisterStateLow
-                                          QF: RRShiftRegisterStateLow
-                                          QG: RRShiftRegisterStateLow
-                                          QH: RRShiftRegisterStateLow];
         }
     }
 }
@@ -90,6 +83,8 @@
     #define SERIAL_CLOCK_LOW    4
     #define REGISTER_CLOCK_HIGH 7   // (Register Clock) Needs to be pulled high to set the output to the new shift register values, This must be pulled high directly after SRCLK has gone LOW again.
     #define REGISTER_CLOCK_LOW  6
+
+    // 3, 2 unused
 
     uint8_t data[27];
     data[0] = REGISTER_CLOCK_LOW;
@@ -128,7 +123,7 @@
 
     data[25] = REGISTER_CLOCK_HIGH;
     data[26] = REGISTER_CLOCK_LOW;
-
+    
     NSLog(@"%i%i%i%i%i%i%i%i", data[2], data[5], data[8], data[11], data[14], data[17], data[20], data[23]);
     
     [_session.outputStream write: (const uint8_t *)data
@@ -144,7 +139,8 @@
 - (void)accessoryDidDisconnect:(EAAccessory *)accessory {
     NSLog(@"accessoryDidDisconnect");
     
-    _session = nil;
+    _session                = nil;
+    _lookForAccessoryTimer  = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(openSession) userInfo:nil repeats:YES];
 }
 
 
@@ -172,7 +168,16 @@
         }
         case NSStreamEventOpenCompleted: {
             NSLog(@"NSStreamEventOpenCompleted");
-
+            
+            [self setShiftRegisterStateForQA: RRShiftRegisterStateLow
+                                          QB: RRShiftRegisterStateLow
+                                          QC: RRShiftRegisterStateLow
+                                          QD: RRShiftRegisterStateLow
+                                          QE: RRShiftRegisterStateLow
+                                          QF: RRShiftRegisterStateLow
+                                          QG: RRShiftRegisterStateLow
+                                          QH: RRShiftRegisterStateLow];
+            
             break;
         }
         case NSStreamEventErrorOccurred: {
