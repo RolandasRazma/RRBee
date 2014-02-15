@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F004280E17D90F3200D7B35E /* YPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F004280217D90F3200D7B35E /* YPViewController.m */; };
+		F004280E17D90F3200D7B35E /* RRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F004280217D90F3200D7B35E /* RRViewController.m */; };
 		F004280F17D90F3200D7B35E /* RRBeeWi.m in Sources */ = {isa = PBXBuildFile; fileRef = F004280517D90F3200D7B35E /* RRBeeWi.m */; };
-		F004281017D90F3200D7B35E /* YPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F004280917D90F3200D7B35E /* YPAppDelegate.m */; };
+		F004281017D90F3200D7B35E /* RRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F004280917D90F3200D7B35E /* RRAppDelegate.m */; };
 		F004281217D90F3200D7B35E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F004280D17D90F3200D7B35E /* MainStoryboard.storyboard */; };
 		F050D8E017BE5C050074720F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F050D8DF17BE5C050074720F /* QuartzCore.framework */; };
 		F082D3C117BE2FA400B27108 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F082D3C017BE2FA400B27108 /* UIKit.framework */; };
@@ -21,12 +21,12 @@
 
 /* Begin PBXFileReference section */
 		F00427FE17D90EF600D7B35E /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
-		F004280117D90F3200D7B35E /* YPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPViewController.h; sourceTree = "<group>"; };
-		F004280217D90F3200D7B35E /* YPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPViewController.m; sourceTree = "<group>"; };
+		F004280117D90F3200D7B35E /* RRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRViewController.h; sourceTree = "<group>"; };
+		F004280217D90F3200D7B35E /* RRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRViewController.m; sourceTree = "<group>"; };
 		F004280417D90F3200D7B35E /* RRBeeWi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRBeeWi.h; sourceTree = "<group>"; };
 		F004280517D90F3200D7B35E /* RRBeeWi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRBeeWi.m; sourceTree = "<group>"; };
-		F004280817D90F3200D7B35E /* YPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPAppDelegate.h; sourceTree = "<group>"; };
-		F004280917D90F3200D7B35E /* YPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPAppDelegate.m; sourceTree = "<group>"; };
+		F004280817D90F3200D7B35E /* RRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRAppDelegate.h; sourceTree = "<group>"; };
+		F004280917D90F3200D7B35E /* RRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRAppDelegate.m; sourceTree = "<group>"; };
 		F004280C17D90F3200D7B35E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F004280D17D90F3200D7B35E /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		F050D8DF17BE5C050074720F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -61,8 +61,8 @@
 				F004280317D90F3200D7B35E /* Model */,
 				F004280717D90F3200D7B35E /* View */,
 				F004280017D90F3200D7B35E /* Controller */,
-				F004280817D90F3200D7B35E /* YPAppDelegate.h */,
-				F004280917D90F3200D7B35E /* YPAppDelegate.m */,
+				F004280817D90F3200D7B35E /* RRAppDelegate.h */,
+				F004280917D90F3200D7B35E /* RRAppDelegate.m */,
 			);
 			name = Classes;
 			path = RRBee/Classes;
@@ -71,8 +71,8 @@
 		F004280017D90F3200D7B35E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F004280117D90F3200D7B35E /* YPViewController.h */,
-				F004280217D90F3200D7B35E /* YPViewController.m */,
+				F004280117D90F3200D7B35E /* RRViewController.h */,
+				F004280217D90F3200D7B35E /* RRViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -225,9 +225,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F082D3CD17BE2FA400B27108 /* main.m in Sources */,
-				F004280E17D90F3200D7B35E /* YPViewController.m in Sources */,
+				F004280E17D90F3200D7B35E /* RRViewController.m in Sources */,
 				F004280F17D90F3200D7B35E /* RRBeeWi.m in Sources */,
-				F004281017D90F3200D7B35E /* YPAppDelegate.m in Sources */,
+				F004281017D90F3200D7B35E /* RRAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +331,7 @@
 		F082D3E117BE2FA400B27108 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RRBee/Prefix.pch;
 				INFOPLIST_FILE = RRBee/Resources/Info.plist;
@@ -342,6 +343,7 @@
 		F082D3E217BE2FA400B27108 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RRBee/Prefix.pch;
 				INFOPLIST_FILE = RRBee/Resources/Info.plist;
