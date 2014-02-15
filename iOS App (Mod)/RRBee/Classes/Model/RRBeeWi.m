@@ -1,6 +1,6 @@
 //
 //  RRBeeWi.m
-//  Bee
+//  RRBee
 //
 //  Created by Rolandas Razma on 16/08/2013.
 //  Copyright (c) 2013 Rolandas Razma. All rights reserved.
@@ -8,7 +8,10 @@
 
 #import "RRBeeWi.h"
 #import <ExternalAccessory/ExternalAccessory.h>
-#import <QuartzCore/QuartzCore.h>
+
+
+NSString * const RRBeeWiDidConnectNotification      = @"RRBeeWiDidConnectNotification";
+NSString * const RRBeeWiDidDisconnectNotification   = @"RRBeeWiDidDisconnectNotification";
 
 
 @interface RRBeeWi () <EAAccessoryDelegate, NSStreamDelegate>
@@ -39,16 +42,16 @@
 - (void)openSession {
     NSArray *connectedAccessories = [[EAAccessoryManager sharedAccessoryManager] connectedAccessories];
     
-    NSLog(@"openSession... %@", connectedAccessories);
+    // NSLog(@"openSession... %@", connectedAccessories);
     
     EAAccessory *accessory = nil;
 
     // Find accessory responding to protocol
     for ( accessory in connectedAccessories ){
-        NSLog(@"accessory: %@", accessory);
+        // NSLog(@"accessory: %@", accessory);
         
         if ( [[accessory protocolStrings] containsObject:@"com.beewi.controlleur"] ) {
-            NSLog(@"got accesory");
+            // NSLog(@"got accesory");
             break;
         }
     }
@@ -69,7 +72,9 @@
             [_session.outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
             [_session.outputStream open];
             
-            NSLog(@"got session");
+            // NSLog(@"got session");
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:RRBeeWiDidConnectNotification object:self];
         }
     }
 }
@@ -124,7 +129,7 @@
     data[25] = REGISTER_CLOCK_HIGH;
     data[26] = REGISTER_CLOCK_LOW;
     
-    NSLog(@"%i%i%i%i%i%i%i%i", data[2], data[5], data[8], data[11], data[14], data[17], data[20], data[23]);
+    // NSLog(@"%i%i%i%i%i%i%i%i", data[2], data[5], data[8], data[11], data[14], data[17], data[20], data[23]);
     
     [_session.outputStream write: (const uint8_t *)data
                        maxLength: 27];
@@ -137,10 +142,12 @@
 
 
 - (void)accessoryDidDisconnect:(EAAccessory *)accessory {
-    NSLog(@"accessoryDidDisconnect");
+    // NSLog(@"accessoryDidDisconnect");
     
     _session                = nil;
     _lookForAccessoryTimer  = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(openSession) userInfo:nil repeats:YES];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:RRBeeWiDidDisconnectNotification object:self];
 }
 
 
@@ -153,44 +160,33 @@
     switch ( streamEvent ) {
         case NSStreamEventHasBytesAvailable: {
             // Process the incoming stream data.
-            NSLog(@"NSStreamEventHasBytesAvailable");
+            // NSLog(@"NSStreamEventHasBytesAvailable");
             break;
         }
         case NSStreamEventHasSpaceAvailable: {
             // Send the next queued command.
             // NSLog(@"NSStreamEventHasSpaceAvailable");
-
             break;
         }
         case NSStreamEventNone: {
-            NSLog(@"NSStreamEventNone");
+            // NSLog(@"NSStreamEventNone");
             break;
         }
         case NSStreamEventOpenCompleted: {
-            NSLog(@"NSStreamEventOpenCompleted");
-            
-            [self setShiftRegisterStateForQA: RRShiftRegisterStateLow
-                                          QB: RRShiftRegisterStateLow
-                                          QC: RRShiftRegisterStateLow
-                                          QD: RRShiftRegisterStateLow
-                                          QE: RRShiftRegisterStateLow
-                                          QF: RRShiftRegisterStateLow
-                                          QG: RRShiftRegisterStateLow
-                                          QH: RRShiftRegisterStateLow];
-            
+            // NSLog(@"NSStreamEventOpenCompleted");
             break;
         }
         case NSStreamEventErrorOccurred: {
-            NSLog(@"NSStreamEventErrorOccurred");
+            // NSLog(@"NSStreamEventErrorOccurred");
             
-//            [stream close];
-//            [stream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-//            [stream release];
-
+            // [stream close];
+            // [stream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+            // [stream release];
+            
             break;
         }
         case NSStreamEventEndEncountered: {
-            NSLog(@"NSStreamEventEndEncountered");
+            // NSLog(@"NSStreamEventEndEncountered");
             break;
         }
     }

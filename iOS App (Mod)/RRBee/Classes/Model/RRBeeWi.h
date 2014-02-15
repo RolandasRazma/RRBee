@@ -1,6 +1,6 @@
 //
 //  RRBeeWi.h
-//  Bee
+//  RRBee
 //
 //  Created by Rolandas Razma on 16/08/2013.
 //  Copyright (c) 2013 Rolandas Razma. All rights reserved.
@@ -17,10 +17,16 @@
 
 #import <Foundation/Foundation.h>
 
+
+extern NSString * const RRBeeWiDidConnectNotification;
+extern NSString * const RRBeeWiDidDisconnectNotification;
+
+
 typedef NS_ENUM(NSUInteger, RRShiftRegisterState) {
     RRShiftRegisterStateLow = 0,
     RRShiftRegisterStateHigh= 1,
 };
+
 
 @interface RRBeeWi : NSObject
 
