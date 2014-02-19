@@ -88,10 +88,10 @@ NSString * const RRBeeWiDidDisconnectNotification   = @"RRBeeWiDidDisconnectNoti
     #define SERIAL_CLOCK_LOW    4
     #define REGISTER_CLOCK_HIGH 7   // (Register Clock) Needs to be pulled high to set the output to the new shift register values, This must be pulled high directly after SRCLK has gone LOW again.
     #define REGISTER_CLOCK_LOW  6
+    #define OUTPUT_ENABLED_HIGH 3
+    #define OUTPUT_ENABLED_LOW  2
 
-    // 3, 2 unused
-
-    uint8_t data[27];
+    uint8_t data[28];
     data[0] = REGISTER_CLOCK_LOW;
 
     data[1] = SERIAL_CLOCK_LOW;
@@ -128,11 +128,13 @@ NSString * const RRBeeWiDidDisconnectNotification   = @"RRBeeWiDidDisconnectNoti
 
     data[25] = REGISTER_CLOCK_HIGH;
     data[26] = REGISTER_CLOCK_LOW;
+
+    data[27] = OUTPUT_ENABLED_HIGH;
     
     // NSLog(@"%i%i%i%i%i%i%i%i", data[2], data[5], data[8], data[11], data[14], data[17], data[20], data[23]);
     
     [_session.outputStream write: (const uint8_t *)data
-                       maxLength: 27];
+                       maxLength: 28];
     
 }
 
